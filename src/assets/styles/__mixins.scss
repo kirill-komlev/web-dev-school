@@ -1,0 +1,14 @@
+@mixin fluid-text($max, $min) {
+	font-size: clamp(#{$min}px, #{$max / 1440 * 100}vw, #{$max}px);
+}
+
+@mixin center($isInline: false, $justify-content, $gap) {
+	@if $isInline {
+		display: inline-flex;
+	} @else {
+		display: flex;
+	}
+	justify-content: $justify-content;
+	align-items: center;
+	column-gap: $gap;
+}

@@ -1,0 +1,34 @@
+.header {
+	&__inner {
+		@include center(false, space-between, 0);
+
+		> a {
+			@include center(false, space-between, 0.5rem);
+
+			font-weight: 700;
+		}
+
+		a {
+			cursor: pointer;
+		}
+	}
+
+	&__menu {
+		&-list {
+			@include center(false, space-between, 0);
+		}
+
+		&-link {
+			@include center(true, center, 1rem);
+
+			height: 4rem;
+			padding: 0 2rem;
+
+			transition-duration: var(--transition-duration);
+
+			&:hover {
+				background: var(--color-accent);
+			}
+		}
+	}
+}

@@ -1,0 +1,52 @@
+body {
+	@include fluid-text(16, 14);
+
+	font-family: var(--font-family-base);
+	font-weight: 400;
+	line-height: 1.28;
+	color: var(--color-white);
+	background-color: var(--color-dark);
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-weight: 700;
+
+	margin: 0;
+	padding-bottom: 1rem;
+}
+
+h1 {
+	@include fluid-text(64, 48);
+}
+
+h2 {
+	@include fluid-text(48, 32);
+}
+
+h3 {
+	@include fluid-text(32, 24);
+}
+
+h4 {
+	@include fluid-text(24, 20);
+}
+
+button {
+	height: 2.5rem;
+
+	padding: 0 1.5rem;
+
+	border: var(--border);
+	border-radius: var(--border-radius);
+
+	transition-duration: var(--transition-duration);
+	cursor: pointer;
+}
