@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* .roboto-regular {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.roboto-bold {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+	font-style: normal;
+} */
+
+:root {
+	// --color-dark: #0a0a0a;
+	// --color-dark-gray: #242625;
+	// --color-light-gray: #8f8f8f;
+
+	// --color-accent: #0077ff;
+	// --color-accent-dark: #003f86;
+	// --color-accent-gradient: linear-gradient(90deg, rgba(10, 232, 248, 1) 0%, rgba(0, 119, 255, 1) 100%);
+
+	/** CSS DARK THEME PRIMARY COLORS */
+	--color-primary-100: #0077ff;
+	--color-primary-200: #4a85ff;
+	--color-primary-300: #6b93ff;
+	--color-primary-400: #85a1ff;
+	--color-primary-500: #9cb0ff;
+	--color-primary-600: #b2bfff;
+
+	/** CSS DARK THEME SURFACE COLORS */
+	--color-surface-100: #121212; // For body background color
+	--color-surface-200: #282828; // For cards background color
+	--color-surface-300: #3f3f3f; // For chips buttons, dropdowns background color
+	--color-surface-400: #575757; // For sidebars, navbar background color
+	--color-surface-500: #717171; // For modal, dialogs background color
+	--color-surface-600: #8b8b8b; // For on background texts color
+
+	/** CSS DARK THEME MIXED SURFACE COLORS */
+	--color-surface-mixed-100: #1a1625;
+	--color-surface-mixed-200: #2f2b3a;
+	--color-surface-mixed-300: #46424f;
+	--color-surface-mixed-400: #5e5a66;
+	--color-surface-mixed-500: #76737e;
+	--color-surface-mixed-600: #908d96;
+
+	--color-white: #ffffff;
+
+	--border-radius: 0.5rem;
+	--border: 1px solid inherit;
+
+	--font-family-base: 'Roboto', sans-serif;
+
+	--container-width: 1200px;
+	--container-padding-x: 1rem;
+
+	--section-padding-y: 5rem;
+
+	--transition-duration: 0.2s;
+}

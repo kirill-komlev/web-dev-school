@@ -1,24 +1,23 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+
+import { links } from '../../data'
 
 import logo from '../../../images/logo.svg'
 
-let mobileOverlay = 'mobileOverlay'
+import Modal from '../Modal/Modal'
+import Button from '../Button/Button'
 
-export function Header({ onChange }) {
-	const [content, setContent] = useState('123')
-
-	function handleClick(event) {
-		onChange(event)
-	}
-
+export default function Header() {
+	const [headerModal, setHeaderModal] = useState(false)
 	return (
 		<>
 			<header className='header'>
 				<div className='header__inner container'>
-					<a
+					<NavLink
 						className='header__logo logo'
-						// onClick={() => handleClick('main')}
-						href='/'
+						to='/'
+						onClick={() => setHeaderModal(false)}
 					>
 						<img
 							src={logo}
@@ -28,59 +27,83 @@ export function Header({ onChange }) {
 							height='24px'
 						/>
 						<p>WebDevSchool</p>
-					</a>
+					</NavLink>
 					<nav className='header__menu hidden-mobile'>
 						<ul className='header__menu-list'>
-							<Header_li href='/products'>Обучение</Header_li>
-							<Header_li href='/diagnostics'>Диагностика</Header_li>
-							<Header_li href='/'>Отзывы</Header_li>
-							<Header_li href='/'>О компании</Header_li>
+							<Header_li className='header__menu' />
 						</ul>
 					</nav>
-					<button
-						className='header__button button button--transparent hidden-mobile'
-						type='button'
-					>
-						Войти
-					</button>
-					<button
+					<Button className='header__button button button--transparent hidden-mobile'>Начать</Button>
+					<Button
 						className='header__burger-button button__burger-menu burger-button visible-mobile'
-						onClick={mobileOverlay.showModal}
+						onClick={() => setHeaderModal(true)}
 					>
-						321
 						<span className='visually-hidden'>Open navigation menu</span>
-					</button>
+					</Button>
 				</div>
+
+				<Modal
+					className='mobile-overlay visible-mobile'
+					open={headerModal}
+				>
+					<div className='mobile-overlay__close-button-wrapper'>
+						<Button
+							className='mobile-overlay__close-button cross-button'
+							onClick={() => setHeaderModal(false)}
+						>
+							<span className='visually-hidden'>Close navigation menu</span>
+						</Button>
+					</div>
+					<div className='mobile-overlay__body'>
+						<ul className='mobile-overlay__body-list'>
+							<li className='mobile-overlay__body-item'>
+								<NavLink
+									className='mobile-overlay__body-logo logo'
+									to='/'
+									onClick={() => setHeaderModal(false)}
+								>
+									<img
+										src={logo}
+										loading='lazy'
+										className='logo__image'
+										width='24px'
+										height='24px'
+									/>
+									<p>WebDevSchool</p>
+								</NavLink>
+							</li>
+
+							<Header_li
+								className={'mobile-overlay__body'}
+								onClick={() => setHeaderModal(false)}
+							/>
+
+							<li className='mobile-overlay__body-item'>
+								<Button className='mobile-overlay__body-button button button--transparent visible-mobile'>Начать</Button>
+							</li>
+						</ul>
+					</div>
+				</Modal>
 			</header>
 		</>
 	)
 }
 
-function Header_li({ children, onClick, href }) {
-	return (
-		<>
-			<li className='header__menu-item'>
-				<a
-					href={href}
-					className='header__menu-link'
-					onClick={onClick}
-				>
-					{children}
-				</a>
-			</li>
-		</>
-	)
-}
-
-export function Dialog() {
-	return (
-		<>
-			<dialog
-				className='mobile-overlay visible-mobile'
-				id={mobileOverlay}
+function Header_li({ className, onClick }) {
+	let listItems = links.map(data => (
+		<li
+			key={data.name}
+			className={className + '-item'}
+		>
+			<NavLink
+				to={data.link}
+				className={className + '-link'}
+				onClick={onClick}
 			>
-				menu
-			</dialog>
-		</>
-	)
+				{data.name}
+			</NavLink>
+		</li>
+	))
+
+	return listItems
 }

@@ -3,7 +3,7 @@ import Intro from '../../components/Intro/Intro'
 export default function Products() {
 	return (
 		<>
-			<Intro name='products' />
+			<Intro name='Products' />
 		</>
 	)
 }

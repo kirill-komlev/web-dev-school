@@ -4,16 +4,6 @@
 	padding-inline: var(--container-padding-x);
 }
 
-.button {
-	color: var(--color-dark);
-	background-color: var(--color-white);
-
-	&:hover {
-		color: var(--color-white);
-		background: var(--color-accent);
-	}
-}
-
 .visually-hidden {
 	position: absolute;
 	width: 1px;

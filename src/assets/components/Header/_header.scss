@@ -1,5 +1,6 @@
 .header {
 	&__inner {
+		padding: 1rem;
 		@include center(false, space-between, 0);
 
 		> a {
@@ -7,27 +8,37 @@
 
 			font-weight: 700;
 		}
-
-		a {
-			cursor: pointer;
-		}
 	}
 
 	&__menu {
 		&-list {
 			@include center(false, space-between, 0);
+
+			column-gap: 1rem;
 		}
 
 		&-link {
 			@include center(true, center, 1rem);
 
-			height: 4rem;
-			padding: 0 2rem;
+			padding: 0.5rem 1rem;
+
+			@include tablet {
+				padding: 0 1.25rem;
+			}
 
 			transition-duration: var(--transition-duration);
 
+			// С классом active
+			&.active {
+				color: var(--color-primary-500);
+			}
+
 			&:hover {
-				background: var(--color-accent);
+				color: var(--color-primary-400);
+			}
+
+			&:active {
+				color: var(--color-primary-300);
 			}
 		}
 	}

@@ -1,24 +1,18 @@
-import { useState } from 'react'
-
 import { Route, BrowserRouter as Router, Routes, Link } from 'react-router-dom'
 
-import { Header, Dialog } from './assets/components/Header/Header'
+import Header from './assets/components/Header/Header'
 import Footer from './assets/components/Footer/Footer'
 
 import Home from './assets/pages/Home/Home'
 import Products from './assets/pages/Products/Products'
 
-export default function App() {
-	const [name, setName] = useState('main')
+import { links } from './assets/data'
 
-	const handleClick = name => {
-		setName(name)
-	}
+export default function App() {
 	return (
 		<>
-			<Header onChange={handleClick} />
-
 			<Router>
+				<Header />
 				<Routes>
 					<Route
 						exact
@@ -30,12 +24,30 @@ export default function App() {
 						path='/products'
 						element={<Products />}
 					/>
+					<Route
+						exact
+						path='/diagnostics'
+						element={<Products />}
+					/>
+					<Route
+						exact
+						path='/personal-stories'
+						element={<Products />}
+					/>
+					<Route
+						exact
+						path='/about'
+						element={<Products />}
+					/>
+
+					<Route
+						exact
+						path='*'
+						element={<Error />}
+					/>
 				</Routes>
+				<Footer />
 			</Router>
-
-			<Footer />
-
-			<Dialog />
 		</>
 	)
 }
