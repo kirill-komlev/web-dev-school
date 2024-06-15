@@ -6,12 +6,25 @@
 	&__inner {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
 
 		line-height: 150%;
 	}
 
 	&__block {
 		width: calc(33% - 1rem);
+
+		@include tablet {
+			margin-top: 2rem;
+
+			width: calc(50% - 1rem);
+		}
+
+		@include mobile {
+			margin-top: 2rem;
+
+			width: 100%;
+		}
 	}
 
 	&__menu {

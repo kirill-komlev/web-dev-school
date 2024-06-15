@@ -519,10 +519,23 @@ h5 {
 .footer__inner {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   line-height: 150%;
 }
 .footer__block {
   width: calc(33% - 1rem);
+}
+@media (max-width: 1024px) {
+  .footer__block {
+    margin-top: 2rem;
+    width: calc(50% - 1rem);
+  }
+}
+@media (max-width: 768px) {
+  .footer__block {
+    margin-top: 2rem;
+    width: 100%;
+  }
 }
 .footer__menu-link:hover {
   color: var(--color-primary-400);
