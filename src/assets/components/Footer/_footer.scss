@@ -1,2 +1,40 @@
 .footer {
+	padding: 4rem 0;
+
+	background-color: var(--color-surface-100);
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+
+		line-height: 150%;
+	}
+
+	&__block {
+		width: calc(33% - 1rem);
+	}
+
+	&__menu {
+		&-link {
+			&:hover {
+				color: var(--color-primary-400);
+			}
+
+			&:active {
+				color: var(--color-primary-300);
+			}
+		}
+	}
+
+	&__about {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1rem;
+	}
+
+	&__logo {
+		display: flex;
+		align-items: center;
+		column-gap: 1rem;
+	}
 }

@@ -274,7 +274,8 @@ button {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   font-weight: 700;
   margin: 0;
   padding-bottom: 1rem;
@@ -509,6 +510,36 @@ h5 {
 }
 .mobile-overlay__body-button {
   width: 100%;
+}
+
+.footer {
+  padding: 4rem 0;
+  background-color: var(--color-surface-100);
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  line-height: 150%;
+}
+.footer__block {
+  width: calc(33% - 1rem);
+}
+.footer__menu-link:hover {
+  color: var(--color-primary-400);
+}
+.footer__menu-link:active {
+  color: var(--color-primary-300);
+}
+.footer__about {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.footer__logo {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
 }
 
 .intro {

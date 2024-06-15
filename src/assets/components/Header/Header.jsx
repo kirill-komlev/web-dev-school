@@ -81,20 +81,6 @@ export default function Header() {
 						</Button>
 					</div>
 					<div className='mobile-overlay__body'>
-						{/* <NavLink
-							className='mobile-overlay__body-logo logo'
-							to='/'
-							onClick={() => setHeaderModal(false)}
-						>
-							<img
-								src={logo}
-								loading='lazy'
-								className='logo__image'
-								width='24px'
-								height='24px'
-							/>
-							<p>WebDevSchool</p>
-						</NavLink> */}
 						<ul className='mobile-overlay__body-list'>
 							<Header_li
 								className={'mobile-overlay__body'}
