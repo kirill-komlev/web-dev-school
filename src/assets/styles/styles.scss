@@ -1,4 +1,6 @@
-@import './variables', './media', './utils', './normalize', './mixins', './globals';
+@import './normalize', './variables', './media', './utils', './mixins', './globals';
 
 @import '../components/Header/header', '../components/Button/button', '../components/Button/burger-button', '../components/Button/cross-button',
-	'../components/Header/mobile-overlay';
+	'../components/Header/mobile-overlay', '../components/Footer/footer';
+
+@import '../pages/Home/home';

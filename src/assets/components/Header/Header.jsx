@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import useScrollbarSize from 'react-scrollbar-size'
 
 import { links } from '../../data'
 
@@ -10,6 +11,25 @@ import Button from '../Button/Button'
 
 export default function Header() {
 	const [headerModal, setHeaderModal] = useState(false)
+	const { height, width } = useScrollbarSize()
+
+	function openModal() {
+		let pagePosition = window.scrollY
+		let modal = document.getElementById('modal')
+
+		document.body.classList.add('modal-open')
+		document.body.style.marginRight = width + 'px'
+
+		modal.style.top = pagePosition + 'px'
+	}
+
+	function closeModal() {
+		document.body.classList.remove('modal-open')
+		document.body.style.marginRight = 0
+
+		modal.style.top = 0
+	}
+
 	return (
 		<>
 			<header className='header'>
@@ -36,7 +56,10 @@ export default function Header() {
 					<Button className='header__button button button--transparent hidden-mobile'>Начать</Button>
 					<Button
 						className='header__burger-button button__burger-menu burger-button visible-mobile'
-						onClick={() => setHeaderModal(true)}
+						onClick={() => {
+							setHeaderModal(true)
+							openModal()
+						}}
 					>
 						<span className='visually-hidden'>Open navigation menu</span>
 					</Button>
@@ -49,39 +72,36 @@ export default function Header() {
 					<div className='mobile-overlay__close-button-wrapper'>
 						<Button
 							className='mobile-overlay__close-button cross-button'
-							onClick={() => setHeaderModal(false)}
+							onClick={() => {
+								setHeaderModal(false)
+								closeModal()
+							}}
 						>
 							<span className='visually-hidden'>Close navigation menu</span>
 						</Button>
 					</div>
 					<div className='mobile-overlay__body'>
+						{/* <NavLink
+							className='mobile-overlay__body-logo logo'
+							to='/'
+							onClick={() => setHeaderModal(false)}
+						>
+							<img
+								src={logo}
+								loading='lazy'
+								className='logo__image'
+								width='24px'
+								height='24px'
+							/>
+							<p>WebDevSchool</p>
+						</NavLink> */}
 						<ul className='mobile-overlay__body-list'>
-							<li className='mobile-overlay__body-item'>
-								<NavLink
-									className='mobile-overlay__body-logo logo'
-									to='/'
-									onClick={() => setHeaderModal(false)}
-								>
-									<img
-										src={logo}
-										loading='lazy'
-										className='logo__image'
-										width='24px'
-										height='24px'
-									/>
-									<p>WebDevSchool</p>
-								</NavLink>
-							</li>
-
 							<Header_li
 								className={'mobile-overlay__body'}
 								onClick={() => setHeaderModal(false)}
 							/>
-
-							<li className='mobile-overlay__body-item'>
-								<Button className='mobile-overlay__body-button button button--transparent visible-mobile'>Начать</Button>
-							</li>
 						</ul>
+						<Button className='mobile-overlay__body-button button button--transparent visible-mobile'>Начать</Button>
 					</div>
 				</Modal>
 			</header>
